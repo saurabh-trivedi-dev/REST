@@ -1,0 +1,189 @@
+What is the Client?
+
+The client is the thing requesting information.
+
+Examples
+
+Chrome
+Firefox
+Mobile App
+React App
+JavaScript
+
+If it requests data,
+
+it's the client.
+
+
+What is the Server?
+
+The server stores data and responds to requests.
+
+Examples
+
+Instagram server
+Amazon server
+Netflix server
+
+Servers answer requests.
+
+Clients ask questions.
+
+
+The Conversation
+
+Every API call follows the same pattern.
+
+Client
+   │
+   │ "Give me user 5"
+   ▼
+Server
+   │
+   │ Finds user 5
+   ▼
+Client receives user data
+
+Every.
+
+Single.
+
+Time.
+
+
+Here's the most important idea in REST APIs
+
+The client never directly touches the database.
+
+It always goes through the server.
+
+❌ Wrong
+
+Browser
+   ↓
+Database
+
+
+✅ Correct
+
+Browser
+   ↓
+Server
+   ↓
+Database
+
+Why?
+
+Because the server:
+
+Checks permissions
+Validates data
+Protects the database
+Applies business logic
+Sends only the required information
+A Day in the Life of an API
+
+Let's say you're logging into Spotify.
+
+Enter email
+Enter password
+Click Login
+
+What actually happens?
+
+Spotify App
+      │
+      │
+      │ "Is this user valid?"
+      ▼
+Spotify Server
+      │
+Checks Database
+      │
+      ▼
+Yes
+      │
+      ▼
+Returns User Data
+
+That entire communication happens through an API.
+
+
+
+HTTP: The Language of the Internet
+
+Remember this conversation?
+
+Client
+   ↓
+Server
+
+A question comes up:
+
+How does the client actually talk to the server?
+
+Does it speak JavaScript?
+
+No.
+
+Does it speak Python?
+
+No.
+
+Does it speak Java?
+
+No.
+
+Every programming language is different.
+
+There has to be one common language that every client and every server understands.
+
+That language is called HTTP.
+
+HTTP = HyperText Transfer Protocol
+
+Don't try to memorize the full form. For now, remember:
+
+HTTP is the set of rules for communication between a client and a server.
+
+
+Real-life analogy
+
+Imagine someone from India and someone from Japan meet.
+
+If one only speaks Hindi and the other only speaks Japanese, they can't communicate.
+
+But if both know English, they can.
+
+Client ----HTTP---- Server
+
+HTTP is like the common language.
+
+Example
+
+You open YouTube.
+
+Your browser doesn't say:
+
+Hey YouTube,
+Can I have some videos?
+
+Instead, it sends an HTTP request.
+
+The server sends an HTTP response.
+
+Everything on the web works this way.
+
+
+
+What does an HTTP request contain?
+
+For now, just remember there are 4 important parts:
+
+1. URL
+2. Method
+3. Headers
+4. Body (sometimes)
+
+
+REST is an architectural style where resources are identified by URLs, and clients perform operations on those resources using standard HTTP methods like GET, POST, PUT, and DELETE.
