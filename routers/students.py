@@ -3,14 +3,14 @@ from schemas import Student, StudentCreate
 from services import (
     students,
     create_student,
-    find_student_index,
+    find_student_index
 )
 
-router = APIRouter()
+router = APIRouter(prefix="/students")
 
 
 @router.post(
-    "/students",
+    "",
     response_model=Student,
     status_code=status.HTTP_201_CREATED,
 )
@@ -19,7 +19,7 @@ def add_student(student: StudentCreate):
 
 
 @router.get(
-    "/students",
+    "",
     response_model=list[Student],
     status_code=status.HTTP_200_OK,
 )
@@ -28,7 +28,7 @@ def get_students():
 
 
 @router.get(
-    "/students/{student_id}",
+    "/{student_id}",
     response_model=Student,
     status_code=status.HTTP_200_OK,
 )
@@ -38,7 +38,7 @@ def get_student(student_id: int):
 
 
 @router.put(
-    "/students/{student_id}",
+    "/{student_id}",
     response_model=Student,
     status_code=status.HTTP_200_OK,
 )
@@ -54,7 +54,7 @@ def update_student(student_id: int, updated_student: StudentCreate):
 
 
 @router.delete(
-    "/students/{student_id}",
+    "/{student_id}",
     status_code=status.HTTP_200_OK,
 )
 def delete_student(student_id: int):
@@ -68,7 +68,7 @@ def delete_student(student_id: int):
 
 
 @router.get(
-    "/students/filter",
+    "/filter",
     response_model=list[Student],
 )
 def filter_students(course: str, cgpa: float):
