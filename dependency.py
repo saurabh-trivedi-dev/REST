@@ -76,3 +76,48 @@ def verify(user = Depends(verify)):
     return {
         "message": "Hello"
     }
+
+
+def check():
+    print("Checking...")
+
+    raise HTTPException(
+        status_code=401,
+        detail="Unauthorized User On Checking"
+    )
+
+@app.get("/check")
+def check(x = Depends(check)):
+    print("Inside Home")
+    return {
+        "message": "Hello"
+    }
+
+
+
+def verify_user():
+    raise HTTPException(
+        status_code=401,
+        detail="Unauthorized User and DB"
+    )
+
+# def verify_user():
+#     print("Verifying User...")
+
+def get_db():
+    print("Connecting Database...")
+
+@app.get("/verifyuserdb")
+def verifyuserdb(
+    user = Depends(verify_user),
+    db = Depends(get_db)
+):
+    print("Inside Home")
+    return {
+        "message": "Hello"
+    }
+
+
+@app.get("/underscore")
+def underscore(_ = Depends(verify_user)):
+    return {"message" : "Hi"}
