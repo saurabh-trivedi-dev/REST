@@ -121,3 +121,27 @@ def verifyuserdb(
 @app.get("/underscore")
 def underscore(_ = Depends(verify_user)):
     return {"message" : "Hi"}
+
+
+
+
+from fastapi import FastAPI, Header, Depends, HTTPException
+
+app = FastAPI()
+
+def verify_token(
+    authorization: str = Header()
+):
+    if authorization != "Bearer abc123":
+        raise HTTPException(
+            status_code=401,
+            detail="Invalid Token"
+        )
+
+@app.get("/home")
+def home(
+    _ = Depends(verify_token)
+):
+    return {
+        "message": "Welcome"
+    }
